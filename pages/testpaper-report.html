@@ -1,0 +1,191 @@
+<!-- header -->
+<div ng-include="'pages/header-welcome.html?s=100'"></div>
+<!-- menu -->
+<div ng-include="'pages/menu.html?s=100'"></div>
+
+<!-- content -->
+<div class="content">
+	<div class="container">
+		<p>&nbsp;</p>
+		<div class="row">
+			<div class="col-xs-12 col-md-12">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<th class="col-xs-2 col-md-3">Name</th>
+							<td>English Testpaper equation 2012 modal paper 4</td>
+						</tr>
+						<tr>
+							<th class="">Duration</th>
+							<td>60 Mins</td>
+						</tr>
+						<tr>
+							<th>Tags</th>
+							<td>English</td>
+						</tr>
+						<tr>
+							<th>No of questions</th>
+							<td>25</td>
+						</tr>
+						<tr>
+							<th>Total marks</th>
+							<td>25</td>
+						</tr>
+						<tr>
+							<th>Negative marks</th>
+							<td>No</td>
+						</tr>
+						<tr>
+							<th>Status</th>
+							<td>Completed</td>
+						</tr>
+						<tr>
+							<th>Your Score</th>
+							<td>23</td>
+						</tr>	
+						<tr>
+							<th>Review</th>
+							<td><button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Review</button></td>
+						</tr>											
+					</tbody>
+				</table>
+			</div>
+
+		  <div class="col-xs-12 col-md-6 ">
+      		  <div id="high-container" class="chart-wrapper" style="height: 300px;"></div>
+    	  </div>
+
+	      <div class="col-xs-12 col-md-6 ">
+	        <div id="high-container2" class="chart-wrapper" style="height: 300px;"></div>
+	      </div>
+	      <p>&nbsp;</p>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+  
+  $(function () {
+    $(document).ready(function () {
+        // Build the chart
+        $('#high-container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Mark Distribution'
+            },
+            credits: {
+               enabled: false
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Correct',
+                    y: 70
+                }, {
+                    name: 'Worng',
+                    y: 20
+                }, {
+                    name: 'Not attempted',
+                    y: 10
+                }]
+            }]
+        });
+    });
+});
+</script>
+
+<script type="text/javascript">
+  $(function () {
+    $('#high-container2').highcharts({
+
+        chart: {
+            type: 'boxplot'
+        },
+
+        title: {
+            text: 'Highcharts Box Plot Example'
+        },
+
+        legend: {
+            enabled: false
+        },
+
+        xAxis: {
+            categories: ['1', '2', '3', '4', '5'],
+            title: {
+                text: 'Experiment No.'
+            }
+        },
+
+        yAxis: {
+            title: {
+                text: 'Observations'
+            },
+            plotLines: [{
+                value: 932,
+                color: 'red',
+                width: 1,
+                label: {
+                    text: 'Theoretical mean: 932',
+                    align: 'center',
+                    style: {
+                        color: 'gray'
+                    }
+                }
+            }]
+        },
+
+        series: [{
+            name: 'Observations',
+            data: [
+                [760, 801, 848, 895, 965],
+                [733, 853, 939, 980, 1080],
+                [714, 762, 817, 870, 918],
+                [724, 802, 806, 871, 950],
+                [834, 836, 864, 882, 910]
+            ],
+            tooltip: {
+                headerFormat: '<em>Experiment No {point.key}</em><br/>'
+            }
+        }, {
+            name: 'Outlier',
+            color: Highcharts.getOptions().colors[0],
+            type: 'scatter',
+            data: [ // x, y positions where 0 is the first category
+                [0, 644],
+                [4, 718],
+                [4, 951],
+                [4, 969]
+            ],
+            marker: {
+                fillColor: 'white',
+                lineWidth: 1,
+                lineColor: Highcharts.getOptions().colors[0]
+            },
+            tooltip: {
+                pointFormat: 'Observation: {point.y}'
+            }
+        }]
+
+    });
+});
+</script>

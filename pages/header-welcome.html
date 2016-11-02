@@ -1,0 +1,17 @@
+<header class="header">
+ <button type="button" class="toggle-menu" >
+   <i class="glyphicon glyphicon-menu-hamburger"></i>
+ </button>
+ <h1> Tervu</h1>
+</header>
+
+<script type="text/javascript">
+  $(".toggle-menu").click(function(){
+  	val = $(".drawer-menu").css("left");
+  	if(val !== "0px"){
+  		$(".drawer-menu").css("left", "0%");
+  	}else{
+  		$(".drawer-menu").css("left", "-52%");
+  	}
+  });
+</script>

@@ -1,0 +1,27 @@
+<div spinnerdirective></div>
+<div class="container-fluid">
+   <div class="row">
+      <div class="col-md-4">&nbsp;</div>
+      <div class="col-md-4">
+         <center><img class="logo-img" src="img/client-logo.png"></center>
+         <hr/>
+         <form class="form-signin" ng-controller="loginCtrl" name="loginForm" novalidate="novalidate">
+            <span class="errorMessage" ng-bind="errorMessage"></span>
+            <h5 class="form-signin-heading">Please sign in</h5>
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" id="username" class="form-control" placeholder="Username" ng-model="loginForm.data.username" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="loginForm.data.password" required>
+            <p>&nbsp;</p>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click='submitForm()'>Sign in</button>
+         </form>
+         <hr/>
+         <center>
+            <div><small>Please contact admin for any support.</small></div>
+            <div>9884925355</div>
+            <div>admin@something.com</div>
+         </center>
+      </div>
+      <div class="col-md-4">&nbsp;</div>
+   </div>
+</div>

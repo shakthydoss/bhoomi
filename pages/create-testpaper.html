@@ -1,0 +1,230 @@
+<!-- header -->
+<div ng-include="'pages/header-welcome.html?s=100'"></div>
+<!-- menu -->
+<div ng-include="'pages/menu.html?s=100'"></div>
+<!-- flash message -->
+
+<!-- content -->
+<div class="content">
+	<div class="container">
+		<p>&nbsp;</p>
+		<div class="row">
+
+			  	<div class="col-xs-12 col-md-12">
+				 <!-- Testpaper form  -->
+		         <form class="form-horizontal" ng-controller="">
+		            <div class="form-group required">
+		               <label for="inputUsername" class="col-sm-2 control-label">Name</label>
+		               <div class="col-sm-8">
+		                  <input type="text" class="form-control" id="" placeholder="Test Paper Name" ng-model="">
+		               </div>
+		            </div>
+
+		           	<div class="form-group">
+		               <label for="inputUsername" class="col-sm-2 control-label">Tags</label>
+		               <div class="col-sm-8">
+		                  <input type="text" class="form-control" id="" placeholder="" ng-model="">
+		                  <p class="help-block">Enter tags separated by commas </p>
+		               </div>
+		            </div>
+
+		            <div class="form-group">
+						    <label for="inputEmail3" class="col-sm-2 control-label">Duration</label>
+						    <div class="col-sm-2">
+						      <select class="form-control">
+								  <option>No Limit</option>
+								  <option>60 Min</option>
+								  <option>Inactive</option>
+								  <option>Delete</option>
+								</select>
+						    </div>
+						  </div> 
+
+		         </form>
+        		 <!-- / Testpaper form -->
+        		 </div>
+
+        		 <div class="col-xs-12 col-md-11">
+		        	<button class="col-md-offset-1 btn btn-primary" data-toggle="modal" data-target="#myModal">Add Question</button>
+		        	<p>&nbsp;</p>
+
+		        	<div class="">
+		        		<table class="table table-bordered col-md-offset-1">
+					 	<thead>
+					 		<tr>
+					 			<th class="col-md-1">S.no</th>
+					 			<th class="col-md-4">Question Type</th>
+					 			<th class="col-md-1">Mark</th>
+					 			<th class="col-md-2">Negative Mark</th>
+					 			<th class="col-md-1">Edit</th>
+					 			<th class="col-md-1">Remove</th>
+					 		</tr>
+					 	</thead>
+					 	<tbody>
+					 		<tr>
+					 			<td>1</td>
+					 			<td>Single Choice</td>
+					 			<td>1</td>
+					 			<td>-</td>
+					 			<td><button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
+					 			<td><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+					 		</tr>
+					 		<tr>
+					 			<td>1</td>
+					 			<td>Single Choice</td>
+					 			<td>1</td>
+					 			<td>-</td>
+					 			<td><button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
+					 			<td><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+					 		</tr>
+					 		<tr>
+					 			<td>1</td>
+					 			<td>Single Choice</td>
+					 			<td>1</td>
+					 			<td>-</td>
+					 			<td><button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
+					 			<td><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+					 		</tr>
+					 		<tr>
+					 			<td>1</td>
+					 			<td>Single Choice</td>
+					 			<td>1</td>
+					 			<td>-</td>
+					 			<td><button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
+					 			<td><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+					 		</tr>
+					 		<tr>
+					 			<td>1</td>
+					 			<td>Single Choice</td>
+					 			<td>1</td>
+					 			<td>-</td>
+					 			<td><button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
+					 			<td><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+					 		</tr>
+					 	</tbody>
+				
+					 	</table>
+						    
+					</div>  
+
+		        		
+        		 </div>
+
+        		 <div class="col-xs-12 col-md-12">
+        		     <form class="form-horizontal" ng-controller="">
+        		 		<div class="form-group">
+
+						   
+						    <div class="col-md-offset-1 col-sm-9">
+						    <p class="help-block required">Invite recipients by tags or usernames. Separated by commas</p>
+						      <input type="text" class="form-control" id="" placeholder="" ng-model="">
+						    </div>
+						</div> 
+        		     
+        		 		<div class="form-group">
+						    <label for="inputEmail3" class="col-sm-2 control-label">Status</label>
+						    <div class="col-sm-2">
+						      <select class="form-control">
+								  <option>Draft</option>
+								  <option>Publish</option>
+							  </select>
+						    </div>
+						 </div> 
+
+						<div class="form-group">
+						    <div class="col-sm-offset-1 col-sm-10">
+						      <button type="submit" class="btn btn-success">Save</button>
+						    </div>
+						</div>  
+					</form>
+        		 </div>
+		</div> <!-- row -->
+	</div>  <!-- container  -->
+</div> <!-- content -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        
+        <form class="form-horizontal">
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">Type</label>
+		    <div class="col-sm-10">
+		      <select class="form-control">
+				  <option>Single Choice</option>
+				  <option>Multi Choice</option>
+				  <option>True or False</option>
+				  <option>Match</option>
+				  <option>Fill Up</option>
+				</select>
+		    </div>
+		  </div>        
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">Question</label>
+		    <div class="col-sm-10">
+		      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+		    </div>
+		  </div>	
+
+		   <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">Options</label>
+		    <div class="col-sm-10">
+		      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+		      <p class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</p>
+		    </div>
+		  </div>
+
+		   <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">Answer</label>
+		    <div class="col-sm-10">
+		      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+		      <p class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</p>
+		    </div>
+		  </div>
+
+		 <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-5 control-label">Mark for each correct answer</label>
+		    <div class="col-sm-2">
+		      <select class="form-control">
+				  <option>1</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>-1</option>
+				  <option>-2</option>
+				</select>
+		    </div>
+		  </div> 
+		 <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-5 control-label">Mark for each worng answer</label>
+		    <div class="col-sm-2">
+		      <select class="form-control">
+				  <option>0</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>-1</option>
+				  <option>-2</option>
+				</select>
+		    </div>
+		  </div> 
+		</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+	$('#myModal').on('shown.bs.modal', function () {
+  		$('#myInput').focus()
+	});
+</script>

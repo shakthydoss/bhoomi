@@ -1,0 +1,112 @@
+<!-- header -->
+<div ng-include="'pages/header-welcome.html?s=100'"></div>
+<!-- menu -->
+<div ng-include="'pages/menu.html?s=100'"></div>
+<!-- content -->
+<div class="flash-message">
+   Flash message bar
+   <span  class="close glyphicon glyphicon-remove"></span>
+</div>
+<div class="content">
+  <div class="container">
+    <div class="row">
+      	<div class="col-md-12">
+      	 <p>&nbsp;</p>
+      	 <!--  profile form  -->
+         <form class="form-horizontal" ng-controller="profileCtrl" name="profileForm" validate>
+         <span us-spinner spinner-key="spinner-1"></span>
+            <center>
+               <span class="errorMessage" ng-bind="errorMessage">&nbsp;</span>
+               <span class="successMessage" ng-bind="successMessage">&nbsp;</span>
+            </center>
+            <div class="form-group required">
+               <label for="inputFullName" class="col-sm-2 control-label">Full Name</label>
+               <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputFullName" placeholder="Full Legal Name" ng-model="profileForm.data.full_name" required>
+               </div>
+            </div>
+            <div class="form-group required">
+               <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+               <div class="col-sm-8">
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="profileForm.data.email" required>
+               </div>
+            </div>
+            <div class="form-group required">
+               <label for="inputMobile" class="col-sm-2 control-label">Mobile</label>
+               <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputMobile" placeholder="Mobile" ng-model="profileForm.data.mobile" required>
+                  <small class="text-muted">No STG code. No special symbols allowed.</small>
+               </div>
+            </div>
+            <input type="text" class="form-control hidden" id="inputAccessToken" ng-model="profileForm.data.access_token" >
+            <input type="text" class="form-control hidden" id="inputUid" ng-model="profileForm.data.uid">
+            <div class="form-group">
+               <div class="col-sm-offset-2 col-sm-8">
+                  <button type="submit" class="btn btn-primary" ng-click='submitForm()'>Save</button>
+               </div>
+            </div>
+         </form>
+         <!-- / profile form  -->
+         <hr/>
+        <!-- username form  -->
+         <form class="form-horizontal" ng-controller="usernameCtrl"  name="usernameForm" >
+            <center>
+               <span class="errorMessage" ng-bind="errorMessage">&nbsp;</span>
+               <span class="successMessage" ng-bind="successMessage">&nbsp;</span>
+            </center>
+            <div class="form-group">
+               <label for="inputUsername" class="col-sm-2 control-label">Username</label>
+               <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputUsername" placeholder="Username" ng-model="data.new_username">
+               </div>
+            </div>
+              <input type="text" class="form-control hidden" id="inputUsername" ng-model="data.new_username">
+            <input type="text" class="form-control hidden" id="inputAccessToken" ng-model="usernameForm.data.access_token" >
+            <input type="text" class="form-control hidden" id="inputUid" ng-model="usernameForm.data.uid">
+            <div class="form-group">
+               <div class="col-sm-offset-2 col-sm-8">
+                  <button type="submit" class="btn btn-primary" ng-click='submitForm()'>Save</button>
+               </div>
+            </div>
+         </form>
+         <!-- / username form -->
+         <hr/>
+         <!-- change password controller  -->
+          <form class="form-horizontal"  name="changePasswordForm" ng-controller="changePasswordCtrl" validate>
+            <center>
+               <span class="errorMessage" ng-bind="errorMessage">&nbsp;</span>
+               <span class="successMessage" ng-bind="successMessage">&nbsp;</span>
+            </center>
+            <div class="form-group required">
+               <label for="inputFullName" class="col-sm-2 control-label">New Password</label>
+               <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputFullName" placeholder="new password" ng-model="data.secret" required>
+                  <small class="text-muted">Password should be alpha numeric. No special symbols allowed. Minimum of 6 and Max of 12 charater is allowed.</small>
+               </div>
+
+            </div>
+            <div class="form-group required">
+               <label for="inputFullName" class="col-sm-2 control-label">Repeat</label>
+               <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputFullName" placeholder="repeat new password" ng-model="data.repeat" required>
+               </div>
+            </div>            
+            <input type="text" class="form-control hidden" id="inputAccessToken" ng-model="data.access_token" >
+            <input type="text" class="form-control hidden" id="inputUid" ng-model="data.uid">
+            <div class="form-group">
+               <div class="col-sm-offset-2 col-sm-8">
+                  <button type="submit" class="btn btn-primary" ng-click='submitForm()'>Save</button>
+               </div>
+            </div>
+         </form>
+         <!-- / change password controller --> 
+      	</div>
+    </div>
+  </div>
+</div>  
+
+<script type="text/javascript">
+ $(".close").click(function(){
+  	$(".flash-message").css("display","none");
+  });
+</script>

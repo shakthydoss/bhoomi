@@ -1,0 +1,155 @@
+<!-- header -->
+<div ng-include="'pages/header-welcome.html?s=100'"></div>
+<!-- menu -->
+<div ng-include="'pages/menu.html?s=100'"></div>
+
+<!-- content -->
+<div class="content">
+	<div class="container">
+		<p>&nbsp;</p>
+		<div class="row">
+			<div class="col-xs-12 col-md-12">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<th class="col-xs-2 col-md-3">Name</th>
+							<td>English Testpaper equation 2012 modal paper 4</td>
+						</tr>
+						<tr>
+							<th class="">Duration</th>
+							<td>60 Mins</td>
+						</tr>
+						<tr>
+							<th>Tags</th>
+							<td>English</td>
+						</tr>
+						<tr>
+							<th>No of questions</th>
+							<td>25</td>
+						</tr>
+						<tr>
+							<th>Total marks</th>
+							<td>25</td>
+						</tr>
+						<tr>
+							<th>Negative marks</th>
+							<td>No</td>
+						</tr>
+						<tr>
+							<th>Status</th>
+							<td>Completed</td>
+						</tr>
+						<tr>
+							<th>Your Score</th>
+							<td>23</td>
+						</tr>	
+						<tr>
+							<th>Review</th>
+							<td><button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Review</button></td>
+						</tr>											
+					</tbody>
+				</table>
+			</div>
+
+		  <div class="col-xs-12 col-md-6 ">
+      		  <div id="high-container" class="chart-wrapper" style="height: 300px;"></div>
+    	  </div>
+
+	      <div class="col-xs-12 col-md-6 ">
+	        <div id="high-container2" class="chart-wrapper" style="height: 300px;"></div>
+	      </div>
+	      <p>&nbsp;</p>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+  
+  $(function () {
+    $(document).ready(function () {
+        // Build the chart
+        $('#high-container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Mark Distribution'
+            },
+            credits: {
+               enabled: false
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Correct',
+                    y: 70
+                }, {
+                    name: 'Worng',
+                    y: 20
+                }, {
+                    name: 'Not attempted',
+                    y: 10
+                }]
+            }]
+        });
+    });
+});
+</script>
+
+<script type="text/javascript">
+  $(function () {
+    $('#high-container2').highcharts({
+        title: {
+            text: 'Monthly Students enggaments',
+            x: -20 //center
+        },
+        credits: {
+               enabled: false
+            },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title: {
+                text: 'Students'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '°C'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: '',
+            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+        }]
+    });
+});
+</script>

@@ -1,0 +1,107 @@
+<!-- header -->
+<div ng-include="'pages/header-welcome.html?s=100'"></div>
+<!-- menu -->
+<div ng-include="'pages/menu.html?s=200'"></div>
+<!-- content -->
+<div class="content">
+  <div class="container">
+  <p>&nbsp;</p>
+    <div class="row">
+       
+       <div class="col-xs-12 col-md-10">
+        
+        <!-- tag form  -->
+         <form class="form-horizontal"  name="tagForm" validate >
+            
+            <input type="text" class="form-control hidden" id="inputAccessToken" ng-model="data.tag_id" >
+            <div class="form-group required">
+               <label for="inputTagname" class="col-sm-2 control-label">Role Name</label>
+               <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputTagname" placeholder="Tag name"  ng-model="data.name" required>
+               </div>
+            </div>
+            <div class="form-group required">
+               <label for="inputdescription" class="col-sm-2 control-label">Description</label>
+               <div class="col-sm-10">
+                  <textarea class="form-control" rows="3" ng-model="data.description" required></textarea>
+               </div>
+            </div>
+            
+            <input type="text" class="form-control hidden" id="inputAccessToken" ng-model="data.access_token" >
+            <input type="text" class="form-control hidden" id="inputUid" ng-model="data.uid">
+
+            <div class="form-group required">
+               <label for="inputdescription" class="col-sm-2 control-label">Is Active</label>
+               <div class="col-sm-5">
+                <select class="form-control" ng-model="data.is_active" required>
+                  <option>y</option>
+                  <option>n</option>
+                </select>
+               </div>
+            </div>
+            
+            <div class="form-group required">
+            <div class="col-sm-10">
+              <h5 class="col-sm-offset-2">Permissions</h5>
+            </div>
+            </div>
+
+            <div class="col-sm-offset-2 col-sm-4">
+               <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Menu - Dashboard
+                </label>
+              </div>
+
+               <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Menu - Profile
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Menu - Manage User
+                </label>
+              </div>
+            </div>
+
+             <div class="col-sm-4">
+               <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Menu - Manage Testpaper
+                </label>
+              </div>
+
+               <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Menu - Manage Tag
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Menu - Manage Role
+                </label>
+              </div>
+            </div>           
+
+            <div class="form-group">
+               <div class="col-sm-offset-2 col-sm-10">
+               <p>&nbsp;</p>
+
+                  <button type="submit" ng-click="saveForm()" class="btn btn-primary">Save</button>
+               </div>
+            </div>
+
+         </form>
+         <!-- / tag form -->
+   
+
+       </div>
+
+    </div>
+  </div>
+</div>  
+
+
