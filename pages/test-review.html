@@ -1,0 +1,98 @@
+<!-- header -->
+<div ng-include="'pages/header-welcome.html?s=100'"></div>
+<!-- menu -->
+<div ng-include="'pages/test-review-menu.html?s=100'"></div>
+<!-- spinner -->
+<div spinnerdirective></div>
+<!-- content -->
+<div class="content">
+  <div class="container">
+    <div class="row" ng-controller="testReviewCtrl">
+      	<div class="col-md-12">
+           <div class="col-md-10 col-md-offset-1">
+               <center>
+                  <h3>Review</h3>
+               </center>
+               <hr>
+           </div>
+      	</div>
+        
+        <div class="col-md-10 col-md-offset-1" ng-hide="showReview">
+            <div class="col-xs-1">
+               {{show_question_at_index}}.
+            </div>
+            <div class="col-xs-10">
+              <form name="testform">
+                <p>{{question.question}}</p>
+                <!-- show only single choice-->
+                <div ng-show="question.type == 'single_choice'">
+                  <div ng-repeat="key in question.options">
+                    <label class="radio-inline">
+                      <input type="radio" name="{{question.qid}}" 
+                         value="{{key}}" ng-checked="{{question.response.indexOf(key) != -1 }}" disabled="disabled"> {{key}}</input>
+                    </label>
+                  </div>
+                  <hr>
+                  <div class="text-success">Correct Answer</div>
+                  <ul ng-repeat="ans in question.answers">
+                    <li>{{ans}}</li>
+                  </ul>
+                  <div>Total mark for this question : {{question.total_mark_for_this_question}}</div>
+                  <div>Your score : {{question.mark_obtained}}</div>
+                </div> 
+                
+                <!-- show only multi choice -->
+                <div ng-show="question.type == 'multi_choice'">
+                  <div ng-repeat="key in question.options">
+                    <label class="checkbox-inline">
+                      <input type="checkbox" name="{{question.qid}}" value="{{key}}" id="{{question.qid}}" ng-checked="{{question.response.indexOf(key) != -1 }}" disabled="disabled"> {{key}}</input>
+                    </label>
+                  </div>
+                  <hr>
+                  <div class="text-success">Correct Answer</div>
+                  <ul ng-repeat="ans in question.answers">
+                    <li>{{ans}}</li>
+                  </ul>
+                  <div>Total mark for this question : {{question.total_mark_for_this_question}}</div>
+                  <div>Your score : {{question.mark_obtained}}</div>
+                </div>
+
+                <hr>
+                <button class="btn btn-sm btn-primary" ng-click="gotToPreviousQuestion()" ng-disabled="show_question_at_index == 1"><span aria-hidden="true"></span>Previous </button>
+                <button class="btn btn-sm btn-primary" ng-click="gotToNextQuestion()" ng-disabled="show_question_at_index == (tp.total_no_of_questions)"><span aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</button>
+                <p>&nbsp;</p> 
+
+                <div ng-show="show_question_at_index == (tp.total_no_of_questions)">
+                  <p>You have reached the final question.</p>
+                   <p>Next : <a href="#/my-testpaper/" >Go to My Testpapers</a></p>
+                </div>
+
+              </form>
+            </div>
+        </div>
+
+        <!-- pre submit -->
+        <div class="col-md-12" ng-show="showReview" >
+          <div class="col-md-10 col-md-offset-1">
+            <center>
+              <div ng-repeat="key in test.questions track by $index">
+                <div class="col-xs-2 col-md-1 review-box" ng-class="key.response.length > 0?'answered':''"><a href="" ng-click="goToQuestion($index+1)">{{$index+1}}</a></div>
+              </div>
+            </center> 
+
+            <div class="col-xs-12 col-md-10">
+              <p>&nbsp;</p>
+               <small><p class="help-block">Unattempted question will be in white color</p></small>
+            </div>
+
+          </div>
+          <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <hr>  
+            <a href="#/my-testpaper/" >Go to My Testpapers</a>
+          </div>
+        </div>
+        <!-- /pre submit -->
+
+  </div> <!-- row -->
+</div> <!-- container -->
+</div>  <!-- content -->

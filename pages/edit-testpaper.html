@@ -8,34 +8,57 @@
 <div class="content">
 	<div class="container">
 		<p>&nbsp;</p>
-		<div class="row">
-
+		<div class="row" ng-controller="getTestPaperByTpid">
 			  	<div class="col-xs-12 col-md-12">
+			  	<center>
+			  		<div class="text-danger" ng-show="disableEditControls">NOTE : This test paper has been published and content in this test paper cannot be edited.</div>
+			  		<p>&nbsp;</p>
+			  	</center>
 				 <!-- Testpaper form  -->
-		         <form class="form-horizontal" ng-controller="">
+		         <form class="form-horizontal" >
 		            <div class="form-group required">
-		               <label for="inputUsername" class="col-sm-2 control-label">Name</label>
-		               <div class="col-sm-8">
-		                  <input type="text" class="form-control" id="" placeholder="Test Paper Name" ng-model="">
-		               </div>
+		            	<label for="inputUsername" class="col-sm-2 control-label">Name</label>
+		               	<div class="col-sm-8">
+		               		<input type="text" class="form-control" id="" placeholder="Test Paper Name" ng-model="tp.name" ng-disabled="disableEditControls">
+		            	</div>
 		            </div>
-
-		           	<div class="form-group">
+		            <div class="form-group">
 		               <label for="inputUsername" class="col-sm-2 control-label">Tags</label>
 		               <div class="col-sm-8">
-		                  <input type="text" class="form-control" id="" placeholder="" ng-model="">
-		                  <p class="help-block">Enter tags separated by commas </p>
+		                  <input type="text" class="form-control" id="" placeholder="" ng-model="tp.tag" ng-disabled="disableEditControls">
+		                  <p class="help-block">Enter tags separated by commas. Eg : subject-code, batch-no, exam-year</p>
 		               </div>
 		            </div>
-		         </form>
-        		 <!-- / Testpaper form -->
+		           <div class="form-group">
+					    <label for="time_limit" class="col-sm-2 control-label">Time Limit</label>
+					    <div class="col-sm-3">
+					      <select class="form-control" ng-model="tp.time_limit" ng-disabled="disableEditControls">
+							  <option value="no-limit">No Limit</option>
+							  <option value="10-min">10 minutes</option>
+							  <option value="20-min">20 minutes</option>
+							  <option value="30-min">30 minutes</option>
+							  <option value="40-min">40 minutes</option>
+							  <option value="50-min">50 minutes</option>
+							  <option value="60-min">60 minutes	(1 hour)</option>
+							  <option value="90-min">90 minutes (1 hour 30 minutes)</option>
+							  <option value="120-min">120 Min (2 hours)</option>
+							  <option value="150-min">150 Min (2 hours 30 minutes)</option>
+							  <option value="180-min">180 Min (3 hours)</option>
+							  <option value="210-min">210 Min (3 hours 30 minutes)</option>
+							  <option value="240-min">240 Min (4 hours)</option>
+							  <option value="270-min">270 Min (4 hours 30 minutes)</option>
+							  <option value="300-min">300 Min (5 hours)</option>
+							  <option value="300-min">330 Min (5 hours 30 minutes)</option>
+							</select>
+					    </div>
+					</div> 
+				 </form>
+				 <hr/>
         		 </div>
-
         		 <div class="col-xs-12 col-md-11">
-		        	<button class="col-md-offset-1 btn btn-primary" data-toggle="modal" data-target="#myModal">Add Question</button>
-		        	<p>&nbsp;</p>
-
-		        	<div class="">
+        		 <button class="col-md-offset-1 btn btn-primary" ng-click="addModalBox()" ng-disabled="disableEditControls">Add Question</button>
+		         <p>&nbsp;</p>
+		         	<div class="">
 		        		<table class="table table-bordered col-md-offset-1">
 					 	<thead>
 					 		<tr>
@@ -43,167 +66,164 @@
 					 			<th>Question Type</th>
 					 			<th>Mark</th>
 					 			<th>Negative Mark</th>
-					 			<th>Edit</th>
+					 			<th>{{tp.status != 'draft' ? 'View' : 'Edit'}}</th>
 					 			<th>Remove</th>
 					 		</tr>
 					 	</thead>
 					 	<tbody>
-					 		<tr>
-					 			<td>1</td>
-					 			<td>Single Choice</td>
-					 			<td>1</td>
-					 			<td>-</td>
-					 			<td><button class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-					 			<td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
-					 		</tr>
-					 		<tr>
-					 			<td>1</td>
-					 			<td>Single Choice</td>
-					 			<td>1</td>
-					 			<td>-</td>
-					 			<td><button class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-					 			<td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
-					 		</tr>
-					 		<tr>
-					 			<td>1</td>
-					 			<td>Single Choice</td>
-					 			<td>1</td>
-					 			<td>-</td>
-					 			<td><button class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-					 			<td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
-					 		</tr>
-					 		<tr>
-					 			<td>1</td>
-					 			<td>Single Choice</td>
-					 			<td>1</td>
-					 			<td>-</td>
-					 			<td><button class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-					 			<td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
-					 		</tr>
-					 		<tr>
-					 			<td>1</td>
-					 			<td>Single Choice</td>
-					 			<td>1</td>
-					 			<td>-</td>
-					 			<td><button class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-					 			<td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+					 		<tr ng-repeat="question in tp.questions track by $index">
+					 			<td>{{$index + 1}}</td>
+					 			<td>{{question.type | to_capitalize | replace_dash | replace_underscore}}</td>
+					 			<td>{{question.total_mark_for_this_question}}</td>
+					 			<td>{{question.mark_per_wrong_answer}}</td>
+					 			<td><button class="btn btn-default" ng-click="editQuestion(question.qid)" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
+					 			<td><button class="btn btn-danger" ng-click="confirmDelete(question.qid)" ng-disabled="disableEditControls"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
 					 		</tr>
 					 	</tbody>
-				
 					 	</table>
-						    
-					</div>  
-
-		        		
+					</div>
+        		 </div>
+        		 <div class="col-xs-12 col-md-12">
+        		 <form class="form-horizontal">
+        		 	<div class="form-group">
+					    <label for="questionType" class="col-sm-2 control-label">Status</label>
+					    <div class="col-sm-2">
+					      <select class="form-control" id="questionType" ng-model="tp.status">
+							  <option ng-show="tp.status=='draft'" value="draft">Draft</option>
+							  <option value="published">Publish</option>
+							  <option ng-hide="tp.status=='draft'" value="inactive">In active</option>
+							</select>
+					    </div>
+					    <div class="col-sm-offset-2 col-sm-8">
+					    	<p class="help-block">Once test-paper is published it cannot be edited.</p>
+					    </div>
+					</div> 
+					<div class="form-group">
+		               <div class="col-sm-offset-2 col-sm-8">
+		               	<a  class="btn btn-default" href="/#/manage-testpaper">Cancel</a>
+		                  <button type="submit" class="btn btn-primary" ng-click="updateTp()">Save</button>
+		               </div>
+					<div>
+        		 </form>
         		 </div>
 
-        		 <div class="col-xs-12 col-md-12">
-        		     <form class="form-horizontal" ng-controller="">
-        		 		<div class="form-group">
-						    <label for="inputEmail3" class="col-sm-2 control-label">Status</label>
+        		 <!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="myModalLabel">Add / Edit Question</h4>
+				      </div>
+				      <div class="modal-body">
+				        
+				        <form class="form-horizontal">
+						  <div class="form-group form-group-sm">
+						    <label for="questionType" class="col-sm-2 control-label">Type</label>
+						    <div class="col-sm-10">
+						      <select class="form-control" id="questionType" ng-model="q.type" ng-disabled="disableEditControls">
+								  <option value="single_choice">Single Choice</option>
+								  <option value="multi_choice">Multi Choice</option>
+								  <option value="true_or_false">True or False</option>
+								  <option value="match">Match</option>
+								  <option value="fill_up">Fill Up</option>
+								</select>
+						    </div>
+						  </div>        
+						  <div class="form-group form-group-sm">
+						    <label for="question" class="col-sm-2 control-label">Question</label>
+						    <div class="col-sm-10">
+						      <input type="text" class="form-control"  id="question" ng-model="q.question" ng-disabled="disableEditControls">
+						    </div>
+						  </div>	
+
+						   <div class="form-group form-group-sm">
+						    <label for="options" class="col-sm-2 control-label">Options</label>
+						    <div class="col-sm-10">
+						      <input type="text" class="form-control" id="options" ng-model="q.options" ng-disabled="disableEditControls">
+						      <small class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</small>
+						    </div>
+						  </div>
+
+						   <div class="form-group form-group-sm">
+						    <label for="answers" class="col-sm-2 control-label">Answer</label>
+						    <div class="col-sm-10">
+						      <input type="text" class="form-control" id="answers" ng-model="q.answers" ng-disabled="disableEditControls">
+						      <small class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</small>
+						    </div>
+						  </div>
+
+						 <div class="form-group form-group-sm">
+						    <label for="mark_per_correct_answer" class="col-sm-5 control-label">Mark for each correct answer</label>
 						    <div class="col-sm-2">
-						      <select class="form-control">
-								  <option>Draft</option>
-								  <option>Publish</option>
-								  <option>Inactive</option>
-								  <option>Delete</option>
+						      <select class="form-control" id="mark_per_correct_answer" ng-model="q.mark_per_correct_answer" ng-disabled="disableEditControls">
+								  <option>1</option>
+								  <option>2</option>
+								  <option>3</option>
+								  <option>-1</option>
+								  <option>-2</option>
 								</select>
 						    </div>
 						  </div> 
-						<div class="form-group">
-						    <div class="col-sm-offset-1 col-sm-10">
-						      <button type="submit" class="btn btn-success">Save</button>
+
+						 <div class="form-group form-group-sm">
+						    <label for="mark_per_wrong_answer" class="col-sm-5 control-label">Mark for each worng answer</label>
+						    <div class="col-sm-2">
+						      <select class="form-control" id="mark_per_wrong_answer" ng-model="q.mark_per_wrong_answer" ng-disabled="disableEditControls">
+								  <option>0</option>
+								  <option>2</option>
+								  <option>3</option>
+								  <option>-1</option>
+								  <option>-2</option>
+								</select>
 						    </div>
-						</div>  
-					</form>
-        		 </div>
+						  </div> 
+						  <div class="form-group form-group-sm">
+						    <label for="answers" class="col-sm-5 control-label">Total mark</label>
+						    <div class="col-sm-2">
+						      <input type="text" class="form-control" id="answers" ng-model="q.total_mark_for_this_question" disabled>
+						    </div>
+						  </div>
+						</form>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+				        <button type="button" class="btn btn-primary btn-sm"  ng-show="show_add_button" ng-click="addQuestion()">Add</button>
+				        <button type="button" class="btn btn-primary btn-sm"  ng-show="show_update_button" ng-disabled="disableEditControls" ng-click="updateQuestion()">Update</button>
+				      </div>
+				    </div>
+				  </div>
+				</div> <!-- /Model -->
+				<!-- delete confirm model -->
+				<div class="modal fade" tabindex="-1" role="dialog" id="confirmDelete">
+				  <div class="modal-dialog modal-sm" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title">Confirm</h4>
+				      </div>
+				      <div class="modal-body">
+				        <p>Are you Sure&hellip;</p>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-danger btn-sm" ng-click="deleteQuestion()" >Delete</button>
+				        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+				      </div>
+				    </div><!-- /.modal-content -->
+				  </div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+				<!-- /delete confirm model -->
+
 		</div> <!-- row -->
 	</div>  <!-- container  -->
 </div> <!-- content -->
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        
-        <form class="form-horizontal">
-		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">Type</label>
-		    <div class="col-sm-10">
-		      <select class="form-control">
-				  <option>Single Choice</option>
-				  <option>Multi Choice</option>
-				  <option>True or False</option>
-				  <option>Match</option>
-				  <option>Fill Up</option>
-				</select>
-		    </div>
-		  </div>        
-		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">Question</label>
-		    <div class="col-sm-10">
-		      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-		    </div>
-		  </div>	
-
-		   <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">Options</label>
-		    <div class="col-sm-10">
-		      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-		      <p class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</p>
-		    </div>
-		  </div>
-
-		   <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">Answer</label>
-		    <div class="col-sm-10">
-		      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-		      <p class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</p>
-		    </div>
-		  </div>
-
-		 <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-5 control-label">Mark for each correct answer</label>
-		    <div class="col-sm-2">
-		      <select class="form-control">
-				  <option>1</option>
-				  <option>2</option>
-				  <option>3</option>
-				  <option>-1</option>
-				  <option>-2</option>
-				</select>
-		    </div>
-		  </div> 
-		 <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-5 control-label">Mark for each worng answer</label>
-		    <div class="col-sm-2">
-		      <select class="form-control">
-				  <option>0</option>
-				  <option>2</option>
-				  <option>3</option>
-				  <option>-1</option>
-				  <option>-2</option>
-				</select>
-		    </div>
-		  </div> 
-		</form>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Add</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script type="text/javascript">
 	$('#myModal').on('shown.bs.modal', function () {
   		$('#myInput').focus()
+	});
+	$('#confirmDelete').on('shown.bs.modal', function () {
+  		$('#confirmDelete').focus()
 	});
 </script>

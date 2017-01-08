@@ -11,133 +11,57 @@
 		<div class="row">
 
 			  	<div class="col-xs-12 col-md-12">
-				 <!-- Testpaper form  -->
-		         <form class="form-horizontal" ng-controller="">
-		            <div class="form-group required">
-		               <label for="inputUsername" class="col-sm-2 control-label">Name</label>
-		               <div class="col-sm-8">
-		                  <input type="text" class="form-control" id="" placeholder="Test Paper Name" ng-model="">
-		               </div>
-		            </div>
+					 <!-- Testpaper form  -->
+			         <form class="form-horizontal" ng-controller="createtp">
+			            <div class="form-group required">
+			               <label for="name" class="col-sm-2 control-label">Name</label>
+			               <div class="col-sm-8">
+			                  <input type="text" class="form-control" id="" placeholder="Test Paper Name" ng-model="name">
+			               </div>
+			            </div>
 
-		           	<div class="form-group">
-		               <label for="inputUsername" class="col-sm-2 control-label">Tags</label>
-		               <div class="col-sm-8">
-		                  <input type="text" class="form-control" id="" placeholder="" ng-model="">
-		                  <p class="help-block">Enter tags separated by commas </p>
-		               </div>
-		            </div>
+			           	<div class="form-group">
+			               <label for="tag" class="col-sm-2 control-label">Tags</label>
+			               <div class="col-sm-8">
+			                  <input type="text" class="form-control" id=""  ng-model="tag">
+			                  <p class="help-block">Enter tags separated by commas. Eg : subject-code, batch-no, exam-year </p>
+			               </div>
+			            </div>
 
-		            <div class="form-group">
-						    <label for="inputEmail3" class="col-sm-2 control-label">Duration</label>
-						    <div class="col-sm-2">
-						      <select class="form-control">
-								  <option>No Limit</option>
-								  <option>60 Min</option>
-								  <option>Inactive</option>
-								  <option>Delete</option>
-								</select>
-						    </div>
-						  </div> 
-
-		         </form>
-        		 <!-- / Testpaper form -->
-        		 </div>
-
-        		 <div class="col-xs-12 col-md-11">
-		        	<button class="col-md-offset-1 btn btn-primary" data-toggle="modal" data-target="#myModal">Add Question</button>
-		        	<p>&nbsp;</p>
-
-		        	<div class="">
-		        		<table class="table table-bordered col-md-offset-1">
-					 	<thead>
-					 		<tr>
-					 			<th class="col-md-1">S.no</th>
-					 			<th class="col-md-4">Question Type</th>
-					 			<th class="col-md-1">Mark</th>
-					 			<th class="col-md-2">Negative Mark</th>
-					 			<th class="col-md-1">Edit</th>
-					 			<th class="col-md-1">Remove</th>
-					 		</tr>
-					 	</thead>
-					 	<tbody>
-					 		<tr>
-					 			<td>1</td>
-					 			<td>Single Choice</td>
-					 			<td>1</td>
-					 			<td>-</td>
-					 			<td><button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-					 			<td><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
-					 		</tr>
-					 		<tr>
-					 			<td>1</td>
-					 			<td>Single Choice</td>
-					 			<td>1</td>
-					 			<td>-</td>
-					 			<td><button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-					 			<td><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
-					 		</tr>
-					 		<tr>
-					 			<td>1</td>
-					 			<td>Single Choice</td>
-					 			<td>1</td>
-					 			<td>-</td>
-					 			<td><button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-					 			<td><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
-					 		</tr>
-					 		<tr>
-					 			<td>1</td>
-					 			<td>Single Choice</td>
-					 			<td>1</td>
-					 			<td>-</td>
-					 			<td><button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-					 			<td><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
-					 		</tr>
-					 		<tr>
-					 			<td>1</td>
-					 			<td>Single Choice</td>
-					 			<td>1</td>
-					 			<td>-</td>
-					 			<td><button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-					 			<td><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
-					 		</tr>
-					 	</tbody>
-				
-					 	</table>
-						    
-					</div>  
-
-		        		
-        		 </div>
-
-        		 <div class="col-xs-12 col-md-12">
-        		     <form class="form-horizontal" ng-controller="">
-        		 		<div class="form-group">
-
-						   
-						    <div class="col-md-offset-1 col-sm-9">
-						    <p class="help-block required">Invite recipients by tags or usernames. Separated by commas</p>
-						      <input type="text" class="form-control" id="" placeholder="" ng-model="">
-						    </div>
+			            <div class="form-group">
+							    <label for="time_limit" class="col-sm-2 control-label">Time Limit</label>
+							    <div class="col-sm-3">
+							      <select class="form-control" ng-model="time_limit">
+									  <option value="no-limit">No Limit</option>
+									  <option value="10-min">10 minutes</option>
+									  <option value="20-min">20 minutes</option>
+									  <option value="30-min">30 minutes</option>
+									  <option value="40-min">40 minutes</option>
+									  <option value="50-min">50 minutes</option>
+									  <option value="60-min">60 minutes	(1 hour)</option>
+									  <option value="90-min">90 minutes (1 hour 30 minutes)</option>
+									  <option value="120-min">120 Min (2 hours)</option>
+									  <option value="150-min">150 Min (2 hours 30 minutes)</option>
+									  <option value="180-min">180 Min (3 hours)</option>
+									  <option value="210-min">210 Min (3 hours 30 minutes)</option>
+									  <option value="240-min">240 Min (4 hours)</option>
+									  <option value="270-min">270 Min (4 hours 30 minutes)</option>
+									  <option value="300-min">300 Min (5 hours)</option>
+									  <option value="300-min">330 Min (5 hours 30 minutes)</option>
+									</select>
+							    </div>
 						</div> 
-        		     
-        		 		<div class="form-group">
-						    <label for="inputEmail3" class="col-sm-2 control-label">Status</label>
-						    <div class="col-sm-2">
-						      <select class="form-control">
-								  <option>Draft</option>
-								  <option>Publish</option>
-							  </select>
-						    </div>
-						 </div> 
-
-						<div class="form-group">
-						    <div class="col-sm-offset-1 col-sm-10">
-						      <button type="submit" class="btn btn-success">Save</button>
-						    </div>
-						</div>  
-					</form>
+					
+							<div class="form-group">
+							    <div class="col-sm-offset-2 col-sm-8">
+							      <a  class="btn btn-default" href="/#/manage-testpaper">Cancel</a>
+							      <button type="submit" class="btn btn-primary" ng-click="saveTp()">Continue</button>
+							    </div>
+							</div> 
+			         </form>
+	        		 <!-- / Testpaper form -->
         		 </div>
+
 		</div> <!-- row -->
 	</div>  <!-- container  -->
 </div> <!-- content -->

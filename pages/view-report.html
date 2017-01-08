@@ -1,0 +1,35 @@
+<!-- header -->
+<div ng-include="'pages/header-welcome.html?s=100'"></div>
+<!-- menu -->
+<div ng-include="'pages/menu.html?s=100'"></div>
+
+<!-- content -->
+<div class="content">
+	<div class="container">
+		<p>&nbsp;</p>
+		<div class="row" ng-controller="viewReportCtrl">
+			<div class="col-xs-12 col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th class="col-md-1">S.no</th>
+							<th class="col-md-3">Username</th>
+							<th class="col-md-6">Testpaper Name</th>
+							<th class="col-md-1">Score</th>
+							<th class="col-md-1">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="tp in tps track by $index">
+							<td>{{$index + 1}}.</td>
+							<td>{{tp.usr_detail[0].username}}</td>
+							<td>{{tp.name}}</td>
+							<td>{{tp.score}} / {{tp.total_make_for_this_tp}}</td>
+							<td><a class="btn btn-sm btn-default" href="#/test-review/{{tp.tpid}}/{{tp.usr_detail[0].uid}}/1"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div> <!-- /row -->
+	</div> <!-- /container -->
+</div> <!-- /content -->

@@ -8,7 +8,8 @@
 <div class="content">
 	<div class="container">
 		<p>&nbsp;</p>
-		<div class="row">
+		<div ng-controller="listTestPapersCreatedByMe">
+			<div class="row">
 
 			<div class="col-xs-12 col-md-6">
 				<a href="#create-testpaper" class="btn btn-primary"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Create New Assessment</a>&nbsp;
@@ -27,104 +28,25 @@
 			<div class="col-xs-12 col-md-12">
 				<hr/>
 			</div>
-
-			<div class="col-xs-12 col-md-3">
-				<div class="box">
+				<div ng-repeat="tp in tps track by $index" class="col-xs-12 col-md-3">				  
+				  <div class="box">
 					<div class="head">
-						English Testpaper equation 2012 modal paper 1 
+						{{tp.name}} 
 					</div>
 					<div class="body">
-						<span class="cell cell-left">Date : Sep 10, 2010</span>
-						<span class="cell cell-right">Status : Published</span>
+						<span class="cell cell-left">Date : {{tp.audit.updated_on * 1000 | date:'yyyy-MMM-dd':'GMT'}}</span>
+						<span class="cell cell-right">Status : {{tp.status | to_capitalize | replace_dash | replace_underscore}}</span>
 						<span class="cell cell-left">Views : 100</span>
-						<span class="cell cell-right">Taken by : 75</span>
-						<span class="cell cell-left"><a href="#">Edit</a></span>
-						<span class="cell cell-right"><a href="#">View Report</a></span>
+						<span class="cell cell-right">Taken by : 76</span>
+						<span class="cell cell-left"><a href="/#/edit-testpaper/{{tp.tpid}}">Edit</a></span>
+						<span class="cell cell-right"><a href="#/view-report/{{tp.tpid}}">View Report</a></span>
+						<span class="cell cell-left">-</span>
+						<span class="cell cell-right"><a href="#/invite-user-for-test/{{tp.tpid}}">Invite User</a></span>
 					</div>
 				</div>
 			</div>
-
-			<div class="col-xs-12 col-md-3">
-				<div class="box">
-					<div class="head">
-						English Testpaper equation 2012 modal paper 1 
-					</div>
-					<div class="body">
-						<span class="cell cell-left">Date : Sep 10, 2010</span>
-						<span class="cell cell-right">Status : Published</span>
-						<span class="cell cell-left">Views : 100</span>
-						<span class="cell cell-right">Taken by : 75</span>
-						<span class="cell cell-left"><a href="#">Edit</a></span>
-						<span class="cell cell-right"><a href="#">View Report</a></span>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-xs-12 col-md-3">
-				<div class="box">
-					<div class="head">
-						English Testpaper equation 2012 modal paper 1 
-					</div>
-					<div class="body">
-						<span class="cell cell-left">Date : Sep 10, 2010</span>
-						<span class="cell cell-right">Status : Published</span>
-						<span class="cell cell-left">Views : 100</span>
-						<span class="cell cell-right">Taken by : 75</span>
-						<span class="cell cell-left"><a href="#">Edit</a></span>
-						<span class="cell cell-right"><a href="#">View Report</a></span>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-xs-12 col-md-3">
-				<div class="box">
-					<div class="head">
-						English Testpaper equation 2012 modal paper 1 
-					</div>
-					<div class="body">
-						<span class="cell cell-left">Date : Sep 10, 2010</span>
-						<span class="cell cell-right">Status : Published</span>
-						<span class="cell cell-left">Views : 100</span>
-						<span class="cell cell-right">Taken by : 75</span>
-						<span class="cell cell-left"><a href="#">Edit</a></span>
-						<span class="cell cell-right"><a href="#">View Report</a></span>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-xs-12 col-md-3">
-				<div class="box">
-					<div class="head">
-						English Testpaper equation 2012 modal paper 1 
-					</div>
-					<div class="body">
-						<span class="cell cell-left">Date : Sep 10, 2010</span>
-						<span class="cell cell-right">Status : Published</span>
-						<span class="cell cell-left">Views : 100</span>
-						<span class="cell cell-right">Taken by : 75</span>
-						<span class="cell cell-left"><a href="#">Edit</a></span>
-						<span class="cell cell-right"><a href="#">View Report</a></span>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-xs-12 col-md-3">
-				<div class="box">
-					<div class="head">
-						English Testpaper equation 2012 modal paper 1 
-					</div>
-					<div class="body">
-						<span class="cell cell-left">Date : Sep 10, 2010</span>
-						<span class="cell cell-right">Status : Published</span>
-						<span class="cell cell-left">Views : 100</span>
-						<span class="cell cell-right">Taken by : 75</span>
-						<span class="cell cell-left"><a href="#">Edit</a></span>
-						<span class="cell cell-right"><a href="#">View Report</a></span>
-					</div>
-				</div>
-			</div>
-
 		</div>
-	</div>
-</div>
+		</div>
+	</div> <!-- /container -->
+</div> <!-- /content -->
 

@@ -6,7 +6,7 @@
 <div class="content">
   <div class="container">
   <p>&nbsp;</p>
-    <div class="row">
+    <div class="row" ng-controller="editTagCtrl">
        
        <div class="col-xs-12 col-md-10">
         
@@ -34,15 +34,17 @@
                <label for="inputdescription" class="col-sm-2 control-label">Is Active</label>
                <div class="col-sm-5">
                 <select class="form-control" ng-model="data.is_active" required>
-                  <option>y</option>
-                  <option>n</option>
+                  <option value="y">Yes</option>
+                  <option value="n">No</option>
                 </select>
                </div>
             </div>
+             <input type="text" class="form-control hidden" id="inputTagname" placeholder="Tag name"  ng-model="data.tag_id" >
 
             <div class="form-group">
                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" ng-click="saveForm()" class="btn btn-primary">Update</button>
+                  <a href="/#/manage-tag" class="btn btn-default">Cancel</a>
+                  <button type="submit" ng-click="submitForm()" class="btn btn-primary">Update</button>
                </div>
             </div>
          </form>
